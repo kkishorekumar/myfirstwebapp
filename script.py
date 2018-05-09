@@ -14,8 +14,8 @@ def geti():
 
 @app.route('/ost/',methods=["POST"])
 def posti():
-    responseId = request.json["responseId"]
-    req = request.json
+    #responseId = request.json["responseId"]
+    #req = request.json
     respo = {"fulfillmentText": "","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {}}
     return jsonify(respo)
 
