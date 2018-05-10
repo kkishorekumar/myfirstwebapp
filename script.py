@@ -12,7 +12,7 @@ def geti():
     resp = {"username": "kkk"}
     return jsonify(resp)
 
-@app.route('/ost/',methods=["POST"])
+@app.route('/ost/',methods=["POST","GET"])
 def posti():
     #responseId = request.json["responseId"]
     #req = request.json
