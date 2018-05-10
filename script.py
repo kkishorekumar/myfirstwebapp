@@ -7,16 +7,14 @@ app =Flask(__name__)
 def home():
     return render_template("home.html")
 
-@app.route('/ome/',methods=["GET"])
+@app.route('/tst/',methods=["GET"])
 def geti():
     resp = {"username": "kkk"}
     return jsonify(resp)
 
-@app.route('/ost/',methods=["POST","GET"])
+@app.route('/chk/',methods=["POST"])
 def posti():
-    #responseId = request.json["responseId"]
-    #req = request.json
-    respo = {"fulfillmentText": "","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {}}
+    respo = {"username": "kkk"}
     return jsonify(respo)
 
 @app.route('/about/')
