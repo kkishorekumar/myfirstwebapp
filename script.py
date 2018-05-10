@@ -14,7 +14,7 @@ def geti():
 
 @app.route('/chk/',methods=["POST"])
 def posti():
-    respo = {"username": "kkk"}
+    respo = request.json
     return jsonify(respo)
 
 @app.route('/about/')
