@@ -15,8 +15,29 @@ def geti():
 
 @app.route('/chk/',methods=["POST"])
 def posti():
-    respo = request.json
-    return jsonify(respo)
+    req = request.json
+    for header in req:
+        if header == "queryResult":
+            for item in req[header]:
+                if item == "intent":
+                    for option in req[header][item]:
+                        if option == "displayName":
+                            if req[header][item][option] == "SharingMobile":
+                                for itm in req[header]:
+                                    if itm == "parameters":
+                                        for para in req[header][itm]:
+                                            if para == "mobilenumber":
+                                                p = re.compile(r'^[6789]\d{9}$',re.I|re.M)
+                                                print (req[header][itm][para])
+                                                if p.match(str(req[header][itm][para])):
+                                                    respo = {"fulfillmentText": "Please enter the OTP received","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {}}
+                                                    return jsonify(respo)
+                                                else:
+                                                    respo = {"fulfillmentText": "Please enter a valid 10 digit mobile","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {}}
+                                                    return jsonify(respo)
+                            respo = {"fulfillmentText": "","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {}}
+                            return jsonify(respo)
+
 
 @app.route('/about/')
 def about():
