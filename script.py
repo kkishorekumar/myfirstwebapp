@@ -33,10 +33,10 @@ def posti():
                                                         print (req[header][itm][len(req[header][itm])-1][para][mob])
                                                         mobil = (req[header][itm][len(req[header][itm])-1][para][mob])
                                                         if p.match(str(req[header][itm][len(req[header][itm])-1][para][mob])):
-                                                            respo = {"fulfillmentText": "Please enter the OTP received","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {"name":"otpevent","languageCode":"en-IN","parameters":{"mobileNumber":str(mobil)}}}
+                                                            respo = {"fulfillmentText": "Please enter the OTP received","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {"name":"otpevent","languageCode":"en","parameters":{"mobileNumber":str(mobil)}}}
                                                             return jsonify(respo)
                                                         else:
-                                                            respo = {"fulfillmentText": "Please enter a valid 10 digit mobile","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {"name":"mobevent","languageCode":"en-IN","parameters":{"mobileNumber":str(mobil)}}}
+                                                            respo = {"fulfillmentText": "Please enter a valid 10 digit mobile","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {"name":"mobevent","languageCode":"en","parameters":{"mobileNumber":str(mobil)}}}
                                                             return jsonify(respo)
                             elif req[header][item][option] == "askotp":
                                 for itm in req[header]:
@@ -49,10 +49,10 @@ def posti():
                                                         print (req[header][itm][len(req[header][itm])-1][para][mob])
                                                         otpi = (req[header][itm][len(req[header][itm])-1][para][mob])
                                                         if p.match(str(req[header][itm][len(req[header][itm])-1][para][mob])):
-                                                            respo = {"fulfillmentText": "","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {"name":"otpevent","languageCode":"en-IN","parameters":{"otp":str(otpi)}}}
+                                                            respo = {"fulfillmentText": "","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {"name":"","languageCode":"en","parameters":{"otp":str(otpi)}}}
                                                             return jsonify(respo)
                                                         else:
-                                                            respo = {"fulfillmentText": "Please enter a valid 6 digit OTP","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {"name":"otpevent","languageCode":"en-IN","parameters":{"otp":str(otpi)}}}
+                                                            respo = {"fulfillmentText": "Please enter a valid 6 digit OTP","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {"name":"otpevent","languageCode":"en","parameters":{"otp":str(otpi)}}}
                                                             return jsonify(respo)
                             respo = {"fulfillmentText": "","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {}}
                             return jsonify(respo)
