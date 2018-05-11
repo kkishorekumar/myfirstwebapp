@@ -31,11 +31,12 @@ def posti():
                                                     if mob == "mobileNumber":
                                                         p = re.compile(r'^[6789]\d{9}$',re.I|re.M)
                                                         print (req[header][itm][len(req[header][itm])-1][para][mob])
+                                                        mobil = (req[header][itm][len(req[header][itm])-1][para][mob])
                                                         if p.match(str(req[header][itm][len(req[header][itm])-1][para][mob])):
-                                                            respo = {"fulfillmentText": "Please enter the OTP received","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {}}
+                                                            respo = {"fulfillmentText": "Please enter the OTP received","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {"name":"otpevent","languageCode":"en-US","parameters":{"mobileNumber":str(mobil)}}}
                                                             return jsonify(respo)
                                                         else:
-                                                            respo = {"fulfillmentText": "Please enter a valid 10 digit mobile","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {}}
+                                                            respo = {"fulfillmentText": "Please enter a valid 10 digit mobile","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {"name":"mobevent","languageCode":"en-US","parameters":{"mobileNumber":str(mobil)}}}
                                                             return jsonify(respo)
                             respo = {"fulfillmentText": "","fulfillmentMessages": [],"source": "example.com","payload": {},"outputContexts": [ ],"followupEventInput": {}}
                             return jsonify(respo)
